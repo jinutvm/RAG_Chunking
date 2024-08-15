@@ -25,9 +25,11 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
 
 """
 
+# define the character text splitter with parameters
 text_splitter = CharacterTextSplitter(
     chunk_size=100, chunk_overlap=10, separator=" ")
 
+# use the text splitter to split the text into documents.
 splitted_docs = text_splitter.create_documents([text])
 
 print("Count of chunks", len(splitted_docs))
@@ -37,6 +39,8 @@ print("Index", "|", "Content of split", "|", "Length of split")
 for idx, split in enumerate(splitted_docs):
     print(idx, " | ", split.page_content, " | ", len(split.page_content))
 
+
+# Result
 """
 Index | Content of split | Length of split
 0  |  ### Retrieval Augmented Generation (RAG)

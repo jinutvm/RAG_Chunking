@@ -23,10 +23,11 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
    - The LLM then answers the question based on the context provided by these chunks.
 
 """
-
+# define the recursive text splitter with parameters
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=100, chunk_overlap=10)
 
+# use the text splitter to split the text into documents.
 splitted_docs = text_splitter.create_documents([text])
 
 print("Count of chunks", len(splitted_docs))
