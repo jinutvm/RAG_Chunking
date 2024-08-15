@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# embeddings
+# define the embeddings
 embeddings = VoyageAIEmbeddings(
     voyage_api_key=os.getenv('VOYAGE_API_KEY'), model="voyage-2"
 )
@@ -33,6 +33,7 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
 
 """
 
+"Using Percentile to determine the chunks"
 # text_splitter = SemanticChunker(
 #     embeddings, breakpoint_threshold_type="percentile")
 
@@ -40,6 +41,7 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
 # print(len(docs))
 # print(docs)
 
+"Using Standard Deviation to determine the chunks"
 # text_splitter = SemanticChunker(
 #     embeddings, breakpoint_threshold_type="standard_deviation")
 
@@ -47,6 +49,7 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
 # print(len(docs))
 # print(docs)
 
+"Using Interquartile to determine the chunks"
 text_splitter = SemanticChunker(
     embeddings, breakpoint_threshold_type="interquartile")
 

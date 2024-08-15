@@ -26,18 +26,27 @@ To address this gap, Retrieval Augmented Generation (RAG) is employed. RAG enhan
 
 """
 
+# Defining the text splitter object.
 semantic_text_splitter = AI21SemanticTextSplitter()
+# text splitter with chunk size
+# semantic_text_splitter = AI21SemanticTextSplitter(chunk_size=500)
+"Split text into Chunks"
 # chunks = semantic_text_splitter.split_text(text)  # split text into chunks
 # print(f"The text has been split into {len(chunks)} chunks.")
 # for chunk in chunks:
 #     print(chunk)
 #     print("====")
+
+"Split text to documents"
 # documents = semantic_text_splitter.split_text_to_documents(text) # split text into documents
+
+"Split text into documents along with metadata"
 documents = semantic_text_splitter.create_documents(
     texts=[text], metadatas=[{"source": "from initial blog"}])
 # split text into documents
 
 print(documents)
+
 
 """
 The text has been split into 5 chunks.
